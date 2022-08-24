@@ -7,7 +7,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('error') {
       steps {
         echo 'Hello'
       }
