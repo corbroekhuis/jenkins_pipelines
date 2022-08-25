@@ -17,7 +17,7 @@ pipeline {
     }
     stage ('Stop Containers') {
         steps {
-            bat 'dir'
+            bat 'docker ps -a'
         }
     }
     stage ('Build') {
