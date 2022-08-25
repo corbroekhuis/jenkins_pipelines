@@ -7,14 +7,14 @@ pipeline {
   stages {
     stage ('Initialize') {
         steps {
-            sh 'echo "PATH = ${PATH}"'
-            sh 'echo "M2_HOME = ${M2_HOME}"'
+            bat 'echo "PATH = ${PATH}"'
+            bat 'echo "M2_HOME = ${M2_HOME}"'
         }
     }
 
     stage('Finalize') {
       steps {
-        sh 'echo "Finalizing"'
+        bat 'echo "Finalizing"'
       }
     }
 
