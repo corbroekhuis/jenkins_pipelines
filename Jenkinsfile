@@ -23,7 +23,7 @@ pipeline {
                     allowMissing: false,
                     alwaysLinkToLastBuild: false,
                     keepAll: true,
-                    reportDir: 'surefire-reports',
+                    reportDir: 'target/surefire-reports',
                     reportFiles: 'index.html',
                     reportName: 'RCov Report'
                   ]
