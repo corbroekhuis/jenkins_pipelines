@@ -7,17 +7,17 @@ pipeline {
   stages {
     stage ('Initialize') {
         steps {
-                        //echo "${BRANCH_NAME}"
-                        echo "${env.BRANCH_NAME}"
-                        //echo "${GIT_BRANCH}"
-                        echo "${env.GIT_BRANCH}"
-            bat 'echo "PATH = ${PATH}"'
-            bat 'echo "M2_HOME = ${M2_HOME}"'
+            //echo "${BRANCH_NAME}"
+            echo "${env.BRANCH_NAME}"
+            //echo "${GIT_BRANCH}"
+            echo "${env.GIT_BRANCH}"
+            bat 'more docker-compose.yml'
+            bat 'more Dockerfile'
         }
     }
     stage ('Stop Containers') {
         steps {
-            bat 'docker-compose down'
+            bat 'dir'
         }
     }
     stage ('Build') {
@@ -41,7 +41,7 @@ pipeline {
     }
     stage ('Start Containers') {
         steps {
-            bat 'docker-compose up -d --build'
+            bat 'dir'
         }
     }
     stage('Finalize') {
