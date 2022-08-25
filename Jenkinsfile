@@ -11,6 +11,11 @@ pipeline {
             bat 'echo "M2_HOME = ${M2_HOME}"'
         }
     }
+    stage ('Stop Containers') {
+        steps {
+            docker-compose down
+        }
+    }
     stage ('Build') {
         steps {
             bat 'mvn -Dmaven.test.failure.ignore=true install'
@@ -28,6 +33,11 @@ pipeline {
                     reportName: 'RCov Report'
                   ]
             }
+        }
+    }
+    stage ('Start Containers') {
+        steps {
+            docker-compose up -d --build
         }
     }
     stage('Finalize') {
