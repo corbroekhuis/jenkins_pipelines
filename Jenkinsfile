@@ -7,17 +7,13 @@ pipeline {
   stages {
     stage ('Initialize') {
         steps {
-            //echo "${BRANCH_NAME}"
-            echo "${env.BRANCH_NAME}"
             //echo "${GIT_BRANCH}"
             echo "${env.GIT_BRANCH}"
-            bat 'more docker-compose.yml'
-            bat 'more Dockerfile'
         }
     }
     stage ('Stop Containers') {
         steps {
-            bat 'docker ps -a'
+            bat 'docker-compose down'
         }
     }
     stage ('Build') {
