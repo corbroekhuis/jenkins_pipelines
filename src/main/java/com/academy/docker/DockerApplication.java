@@ -20,8 +20,9 @@ public class DockerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		employeeService.save(new Employee( 0, "John Doe", 23, "john.doe@srv.org"));
+		employeeService.save(new Employee( 0, "John Doe", 25, "john.doe@srv.org"));
 		employeeService.save(new Employee( 0, "Jane Doe", 23, "jane.doe@srv.org"));
+		employeeService.save(new Employee( 0, "Baby Doe", 1, "baby.doe@srv.org"));
 
 
 
