@@ -14,7 +14,7 @@ pipeline {
 
     stage('Finalize') {
       steps {
-        sh echo "Done"
+        sh 'echo "Done"'
       }
     }
 
