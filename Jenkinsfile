@@ -37,7 +37,7 @@ pipeline {
     }
     stage ('Start Containers') {
         steps {
-            bat 'dir'
+            bat 'docker-compose up --build'
         }
     }
     stage('Finalize') {
