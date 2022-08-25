@@ -17,7 +17,7 @@ pipeline {
     }
     stage ('Stop Containers') {
         steps {
-            docker-compose down
+            bat 'docker-compose down'
         }
     }
     stage ('Build') {
@@ -41,7 +41,7 @@ pipeline {
     }
     stage ('Start Containers') {
         steps {
-            docker-compose up -d --build
+            bat 'docker-compose up -d --build'
         }
     }
     stage('Finalize') {
