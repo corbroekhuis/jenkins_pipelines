@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('First') {
       steps {
-        echo "**This is Demo $DEMO"
+        echo "This is Demo $DEMO"
+        mvn clean
       }
     }
 
@@ -15,7 +16,7 @@ pipeline {
 
   }
   environment {
-    DEMO = '3'
+    DEMO = 'Mvn'
   }
 }
 
