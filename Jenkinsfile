@@ -7,6 +7,10 @@ pipeline {
   stages {
     stage ('Initialize') {
         steps {
+                        //echo "${BRANCH_NAME}"
+                        echo "${env.BRANCH_NAME}"
+                        //echo "${GIT_BRANCH}"
+                        echo "${env.GIT_BRANCH}"
             bat 'echo "PATH = ${PATH}"'
             bat 'echo "M2_HOME = ${M2_HOME}"'
         }
