@@ -7,6 +7,12 @@ pipeline {
       }
     }
 
+    stage('error') {
+      steps {
+        echo 'Hello'
+      }
+    }
+
   }
   environment {
     DEMO = '3'
