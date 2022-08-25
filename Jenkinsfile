@@ -50,6 +50,6 @@ pipeline {
   environment {
     DEMO = 'Mvn'
   }
-  
+
 }
 
