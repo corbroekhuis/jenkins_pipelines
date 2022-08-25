@@ -1,11 +1,17 @@
 pipeline {
   agent any
+  tools {
+      maven 'Maven_3.8.6'
+      jdk 'Jdk_11'
+  }
   stages {
-    stage('First') {
-      steps {
-        echo "This is Demo $DEMO"
-        mvn clean
-      }
+    stage ('Initialize') {
+        steps {
+            sh '''
+                echo "PATH = ${PATH}"
+                echo "M2_HOME = ${M2_HOME}"
+            '''
+        }
     }
 
     stage('error') {
