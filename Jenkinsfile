@@ -20,14 +20,9 @@ pipeline {
             bat 'docker compose down'
         }
     }
-    stage ('Build') {
-        steps {
-            bat 'mvn -DskipTests clean package'
-        }
-    }
     stage ('Test') {
         steps {
-            bat 'mvn test'
+            bat 'mvn clean compile test'
         }
         post {
             success {
@@ -47,6 +42,11 @@ pipeline {
             }
         }
 
+    }
+    stage ('Build') {
+        steps {
+            bat 'mvn -DskipTests clean package'
+        }
     }
     stage ('Start Containers') {
         steps {
