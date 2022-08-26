@@ -20,9 +20,9 @@ pipeline {
             bat 'docker compose down'
         }
     }
-    stage ('Build') {
+    stage ('Test') {
         steps {
-            bat 'mvn -Dmaven.test.failure.ignore=true package'
+            bat 'mvn -Dmaven.test.failure.ignore=true test'
         }
         post {
             success {
@@ -37,10 +37,12 @@ pipeline {
                     reportName: 'RCov Report'
                   ]
             }
-            always {
-                emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
-            }
         }
+    stage ('Build') {
+        steps {
+            bat 'mvn -Dskip.tests=true package'
+        }
+
     }
     stage ('Start Containers') {
         steps {

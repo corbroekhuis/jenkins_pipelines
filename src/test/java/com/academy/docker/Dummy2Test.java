@@ -2,12 +2,10 @@ package com.academy.docker;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Date;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DummyTest1 {
+public class Dummy2Test {
 
     @Test
     public void dummyTestForBoolean(){
@@ -36,7 +34,7 @@ public class DummyTest1 {
     @Test
     public void dummyTestForFloat(){
 
-        Float f = 0.5F;
+        Float f = 0.4F;
         assertEquals( 0.4F,f);
 
     }
