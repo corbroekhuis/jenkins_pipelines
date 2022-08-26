@@ -22,7 +22,7 @@ pipeline {
     }
     stage ('Test') {
         steps {
-            bat 'mvn clean compile test'
+            bat 'mvn -Dmaven.test.failure.ignore=true clean compile test'
         }
         post {
             success {
@@ -37,9 +37,7 @@ pipeline {
                     reportName: 'RCov Report'
                   ]
             }
-            always {
-                emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
-            }
+
         }
 
     }
