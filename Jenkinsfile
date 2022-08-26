@@ -20,7 +20,7 @@ pipeline {
             bat 'docker compose down'
         }
     }
-    stage ('Build and test') {
+    stage ('Build') {
         steps {
             bat 'mvn -Dmaven.test.failure.ignore=true package'
         }
@@ -37,9 +37,10 @@ pipeline {
                     reportName: 'RCov Report'
                   ]
             }
-
+            always {
+                emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
+            }
         }
-
     }
     stage ('Start Containers') {
         steps {
@@ -52,7 +53,7 @@ pipeline {
       }
       post{
         always {
-         mail bcc: '', body: 'Pipeline has been succesfully executed ', cc: '', from: 'cornelius.broekhuis@capgemini.com', replyTo: 'cornelius.broekhuis@capgemini.com', subject: 'Pipeline has been succesfully executed ', to: 'cornelius.broekhuis@capgemini.com'
+         mail bcc: '', body: 'Pipeline has been succesfully executed ', cc: '', from: '', replyTo: '', subject: 'Pipeline has been succesfully executed ', to: 'cornelius.broekhuis@capgemini.com'
         }
       }
     }
