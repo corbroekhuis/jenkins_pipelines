@@ -26,7 +26,7 @@ public class DummyTest {
     public void dummyTestForString(){
 
         String s = "Hello";
-        assertEquals( "Helloq",s);
+        assertEquals( "Hello",s);
 
     }
 
