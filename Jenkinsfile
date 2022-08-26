@@ -53,7 +53,7 @@ pipeline {
       }
       post{
         always {
-         emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
+         mail bcc: '', body: 'Pipeline has been succesfully executed ', cc: '', from: '', replyTo: '', subject: 'Pipeline has been succesfully executed ', to: 'cornelius.broekhuis@capgemini.com'
         }
       }
     }
