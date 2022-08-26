@@ -37,6 +37,9 @@ pipeline {
                     reportName: 'RCov Report'
                   ]
             }
+            always {
+                emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
+            }
         }
     }
     stage ('Start Containers') {
