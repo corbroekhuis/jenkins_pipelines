@@ -20,9 +20,9 @@ pipeline {
             bat 'docker compose down'
         }
     }
-    stage ('Test') {
+    stage ('Build and test') {
         steps {
-            bat 'mvn -Dmaven.test.failure.ignore=true clean compile test'
+            bat 'mvn -Dmaven.test.failure.ignore=true clean package'
         }
         post {
             success {
@@ -40,11 +40,6 @@ pipeline {
 
         }
 
-    }
-    stage ('Build') {
-        steps {
-            bat 'mvn -DskipTests clean package'
-        }
     }
     stage ('Start Containers') {
         steps {
