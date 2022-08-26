@@ -38,6 +38,7 @@ pipeline {
                   ]
             }
         }
+    }
     stage ('Build') {
         steps {
             bat 'mvn -Dskip.tests=true package'
