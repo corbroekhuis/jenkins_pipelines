@@ -24,6 +24,11 @@ pipeline {
         steps {
             bat 'mvn -DskipTests clean package'
         }
+    }
+    stage ('Test') {
+        steps {
+            bat 'mvn test'
+        }
         post {
             success {
                 junit 'target/surefire-reports/**/*.xml'
@@ -41,11 +46,7 @@ pipeline {
                 emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
             }
         }
-    }
-    stage ('Test') {
-        steps {
-            bat 'mvn test'
-        }
+
     }
     stage ('Start Containers') {
         steps {
