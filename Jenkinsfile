@@ -22,7 +22,8 @@ pipeline {
     }
     stage ('Build') {
         steps {
-            bat 'mvn -Dmaven.test.failure.ignore=true package'
+            bat 'mvn test'
+            bat 'mvn -DskipTests clean package'
         }
         post {
             success {
