@@ -24,21 +24,7 @@ pipeline {
         steps {
             bat 'mvn -Dmaven.test.failure.ignore=true package'
         }
-        post {
-            success {
-                junit 'target/surefire-reports/**/*.xml'
-                // publish html
-                publishHTML target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: false,
-                    keepAll: true,
-                    reportDir: 'target/surefire-reports',
-                    reportFiles: 'index.html',
-                    reportName: 'RCov Report'
-                  ]
-            }
 
-        }
 
     }
     stage ('Start Containers') {
