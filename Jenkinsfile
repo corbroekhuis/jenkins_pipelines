@@ -51,6 +51,10 @@ pipeline {
       steps {
         bat 'echo "Finalizing"'
       }
+
+      always {
+          emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
+      }
     }
 
   }
