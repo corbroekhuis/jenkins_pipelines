@@ -22,7 +22,6 @@ pipeline {
     }
     stage ('Build') {
         steps {
-            bat 'mvn test'
             bat 'mvn -DskipTests clean package'
         }
         post {
@@ -41,6 +40,11 @@ pipeline {
             always {
                 emailext body: 'Build finished', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Pipeline'
             }
+        }
+    }
+    stage ('Test') {
+        steps {
+            bat 'mvn test'
         }
     }
     stage ('Start Containers') {
