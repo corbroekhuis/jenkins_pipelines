@@ -2,15 +2,18 @@ package com.academy.docker;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Date;
 
-public class DummyTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class DummyTest2 {
 
     @Test
     public void dummyTestForBoolean(){
 
         boolean b = true;
-        assertEquals( true, b);
+        assertTrue( b);
 
     }
 
@@ -30,5 +33,22 @@ public class DummyTest {
 
     }
 
+    @Test
+    public void dummyTestForFloat(){
+
+        Float f = 0.5F;
+        assertEquals( 0.4F,f);
+
+    }
+
+    @Test
+    public void dummyTestForSum(){
+
+        int i1 = 2;
+        int i2 = 4;
+
+        assertEquals( 6,i1 + i2);
+
+    }
 
 }
