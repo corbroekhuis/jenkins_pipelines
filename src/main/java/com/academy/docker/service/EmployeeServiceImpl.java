@@ -12,14 +12,17 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService{
 
     EmployeeRepository employeeRepository;
+    ImageUrlService imageUrlService;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository){
-      this.employeeRepository = employeeRepository;
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ImageUrlService imageUrlService){
+        this.employeeRepository = employeeRepository;
+        this.imageUrlService = imageUrlService;
     }
 
     @Override
     public Employee save(Employee employee){
+        // Business logic uitvoeren
         return employeeRepository.save(employee);
     }
 
@@ -30,7 +33,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Optional<Employee> findById(Long id){
-        return employeeRepository.findById(id);
+        String imageUrl = imageUrlService.getUrl( id);
+        Employee employee = employeeRepository.findById(id).get();
+        employee.setImageUrl( imageUrl);
+        return Optional.of(employee);
     }
 
     @Override

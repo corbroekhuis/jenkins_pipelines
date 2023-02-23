@@ -28,6 +28,7 @@ public class EmployeeController {
         this.version = version;
     }
 
+    // http://localhost:9991/api/getversion
     @GetMapping("/getversion")
     public ResponseEntity<String> getVersion() {
 
@@ -37,7 +38,7 @@ public class EmployeeController {
 
     }
 
-    @PutMapping(value = "/employee", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/employee", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Employee> saveEmployee( @RequestBody final Employee employee) {
 
         logger.info("Inside 'saveEmployeeById'");
@@ -47,6 +48,7 @@ public class EmployeeController {
 
     }
 
+    // http://localhost:9991/api/employee/2
     @GetMapping(value = "/employee/{id}", produces = "application/json")
     public ResponseEntity<Employee> getEmployeeById( @PathVariable final Long id) {
 
@@ -75,7 +77,7 @@ public class EmployeeController {
 
     }
 
-    @DeleteMapping(value = "/employee/{employee}", produces = "text/plain")
+    @DeleteMapping(value = "/employee/{id}", produces = "text/plain")
     public ResponseEntity<String> deleteEmployeeById( @PathVariable final Long id) {
 
         logger.info("Inside 'deleteEmployeeById'");

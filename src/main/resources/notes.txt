@@ -9,6 +9,12 @@ bat ipv sh
 
 
 email
++ admin mail setting
+https://stackoverflow.com/questions/9693526/how-can-i-set-the-senders-address-in-jenkins
 
 test results analyzer plugin
 
+
+
+
+http://localhost:8088/job/aweqweqweqwe/

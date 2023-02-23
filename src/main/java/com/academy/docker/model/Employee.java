@@ -12,6 +12,8 @@ public class Employee{
 	private String name;
 	private int age;
 	private String email;
+	private long bsn;
+	private String imageUrl;
 
 	public Employee() {
 		System.out.println( "");
@@ -20,11 +22,13 @@ public class Employee{
 
 
 
-	public Employee(long id, String name, int age, String email) {
+	public Employee(long id, String name, int age, String email, long bsn, String imageUrl) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.email = email;
+		this.bsn = bsn;
+		this.imageUrl = imageUrl;
 	}
 
 	public long getId(){
@@ -52,4 +56,19 @@ public class Employee{
 		this.email = email;
 	}
 
+	public long getBsn() {
+		return bsn;
+	}
+
+	public void setBsn(long bsn) {
+		this.bsn = bsn;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 }
