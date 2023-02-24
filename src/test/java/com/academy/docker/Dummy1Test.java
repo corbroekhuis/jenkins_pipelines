@@ -35,7 +35,7 @@ public class Dummy1Test {
     public void dummyTestForFloat(){
 
         float f = 0.5F;
-        assertEquals( 0.5f,f);
+        assertEquals( 0.15f,f);
 
     }
 
