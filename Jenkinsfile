@@ -17,7 +17,7 @@ pipeline {
     }
     stage ('Stop Containers') {
         steps {
-            bat 'docker-compose down'
+          //  bat 'docker-compose down'
         }
     }
     stage ('Test') {
