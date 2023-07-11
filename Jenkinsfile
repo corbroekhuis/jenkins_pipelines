@@ -11,12 +11,8 @@ pipeline {
   stages {
     stage ('Initialize') {
         steps {
-            //echo "${GIT_BRANCH}"
-            bat '''
-                docker version
-                docker info
-                docker compose version
-            '''
+            bat "echo %PATH%"
+
             echo "${env.GIT_BRANCH}"
         }
     }
