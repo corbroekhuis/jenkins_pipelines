@@ -18,7 +18,7 @@ pipeline {
     }
     stage ('Stop Containers') {
         steps {
-          bat 'docker compose -f docker-compose-acc.yml compose down'
+          bat 'docker compose -f docker-compose-acc.yml down'
         }
     }
     stage ('Test') {
