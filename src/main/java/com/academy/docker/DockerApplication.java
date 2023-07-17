@@ -14,8 +14,8 @@ public class DockerApplication implements CommandLineRunner {
 	@Autowired
 	EmployeeService employeeService;
 
-	@Value("${server.port}")
-	String port;
+	//@Value("${server.port}")
+	String port = "8443";
 
 	public static void main(String[] args) {
 
